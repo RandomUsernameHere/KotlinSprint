@@ -19,5 +19,4 @@ fun main(){
     print(":")
     print(minute)
 
-    //println("${hour}:${minute}")
 }
