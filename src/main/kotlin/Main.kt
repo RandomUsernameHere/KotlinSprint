@@ -1,6 +1,7 @@
 
-fun main(args: Array<String>){
+fun main(){
 
-    println("Hello, world!");
+    var numberOfOrders: Int = 75
+    val orderGreeting: String = "Спасибо за покупку!"
 
 }
