@@ -1,58 +1,20 @@
 package lesson1
 
 fun main() {
-  /**@value Количество секунд которое Гагарин провел в космосе*/
-  val seconds: UShort = 6480u
+  val seconds: Short = 6480
+  val secondsInHour: Short = 3600
+  val secondsInMinute: Short = 60
+  var minutes: Short = 0
+  var hours: Short = 0
+  var minutesDivisionReminder: Short = 0
+  var hoursDivisionReminder: Short = 0
 
-  /**@value Число секунд в часе*/
-  val secondsInHour: UShort = 3600u
+  hours = (seconds / secondsInHour).toShort()
+  hoursDivisionReminder = (seconds - (hours * secondsInHour)).toShort()
 
-  /**@value Число секунд в минуте*/
-  val secondsInMinute: UShort = 60u
+  minutes = (hoursDivisionReminder / secondsInMinute).toShort()
+  minutesDivisionReminder = (hoursDivisionReminder - (minutes * secondsInMinute)).toShort()
 
-  /**@value Число минут полета*/
-  var minutes: UShort = 0u
+  println(String.format("%02d:%02d:%02d", hours.toInt(), minutes.toInt(), minutesDivisionReminder.toInt()))
 
-  /**@value Число часов полета*/
-  var hours: UShort = 0u
-
-  /**@value Остаток от деления минут*/
-  var minutesDivisionReminder: UShort = 0u
-
-  /**Остаток от деления часов*/
-  var hoursDivisionReminder: UShort = 0u
-
-  hours = (seconds / secondsInHour).toUShort()
-  hoursDivisionReminder = (seconds - (hours * secondsInHour)).toUShort()
-
-  minutes = (hoursDivisionReminder / secondsInMinute).toUShort()
-  minutesDivisionReminder = (hoursDivisionReminder - (minutes * secondsInMinute)).toUShort()
-
-  println(getPrintString(hours, minutes, minutesDivisionReminder))
-
-}
-
-/**
- * Функция преобразовывает число в строку и добивает слева нулями
- *
- * @param number Число для форматирования
- * @param length До такой длины добивается строка
- *
- * @return строку-результат
- * */
-fun padLeft(number: UShort, length: Int = 2): String {
-  return number.toString().padStart(length, '0')
-}
-
-/**
- * Функция собирает строку для печати формата HH:MM:SS
- *
- * @param hours количество часов
- * @param minutes количество минут
- * @param seconds количество секунд
- *
- * @return Строка-результат
- * */
-fun getPrintString(hours: UShort, minutes: UShort, seconds: UShort): String {
-  return padLeft(hours) + ":" + padLeft(minutes) + ":" + padLeft(seconds)
 }
