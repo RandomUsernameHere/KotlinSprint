@@ -53,7 +53,6 @@ fun padLeft(number: UShort, length: Int = 2): String {
  *
  * @return Строка-результат
  * */
-fun getPrintString(hours: UShort, minutes: UShort, seconds: UShort): String
-{
+fun getPrintString(hours: UShort, minutes: UShort, seconds: UShort): String {
   return padLeft(hours) + ":" + padLeft(minutes) + ":" + padLeft(seconds)
 }
